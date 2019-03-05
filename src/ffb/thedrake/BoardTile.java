@@ -1,6 +1,7 @@
 package ffb.thedrake;
 
 public interface BoardTile extends Tile {
+
 	public static BoardTile EMPTY = new BoardTile() {
 
 		@Override
@@ -11,6 +12,9 @@ public interface BoardTile extends Tile {
 		@Override
 		public boolean hasTroop() {
 			return false;
+		}
+		public String toString(){
+			return "EMPTY";
 		}
 	};
 	
@@ -23,6 +27,9 @@ public interface BoardTile extends Tile {
 		@Override
 		public boolean hasTroop() {
 			return false;
+		}
+		public String toString(){
+			return "MOUNTAIN";
 		}
 	};
 }

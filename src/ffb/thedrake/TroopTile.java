@@ -28,11 +28,13 @@ public class TroopTile implements Tile {
     }
 
     // Vrací False, protože na dlaždici s jednotkou se nedá vstoupit
+    @Override
     public boolean canStepOn(){
         return false;
     }
 
     // Vrací True
+    @Override
     public boolean hasTroop(){
         return true;
     }
