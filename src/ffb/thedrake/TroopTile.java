@@ -42,8 +42,10 @@ public class TroopTile implements Tile {
     // Vytvoří novou dlaždici, s jednotkou otočenou na opačnou stranu
     // (z rubu na líc nebo z líce na rub)
     public TroopTile flipped(){
-        if(troopFace==TroopFace.AVERS)
+        if (troopFace == TroopFace.AVERS) {
             return new TroopTile(this.troop, this.playingSide, TroopFace.REVERS);
+        }
+
         return new TroopTile(this.troop, this.playingSide, TroopFace.AVERS);
     }
 
