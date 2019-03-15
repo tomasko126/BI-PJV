@@ -131,7 +131,7 @@ public class BoardTroopsTest {
 		// Nějaká další jednotka
 		Troop spearman = new Troop("Spearman");
 		BoardTroops troops5 = troops4.placeTroop(spearman, pf.pos("c1"));		
-		assertSame(3, troops5.guards());
+		assertSame(2, troops5.guards());
 		assertSame(true, troops5.isLeaderPlaced());
 		assertSame(false, troops5.isPlacingGuards());
 		assertEquals(

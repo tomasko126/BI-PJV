@@ -91,8 +91,10 @@ public class BoardTroops {
 
 		if (!this.isLeaderPlaced()) {
 			return new BoardTroops(this.playingSide(), updatedTroopMap, target, this.guards());
-		} else {
+		} else if (this.isPlacingGuards()){
 			return new BoardTroops(this.playingSide(), updatedTroopMap, this.leaderPosition(), this.guards() + 1);
+		} else {
+			return new BoardTroops(this.playingSide(), updatedTroopMap, this.leaderPosition(), this.guards());
 		}
 	}
 	
@@ -168,23 +170,16 @@ public class BoardTroops {
 		// Get the leader position
 		TilePos newLeaderPosition;
 
-		boolean removingGuard = false;
-
 		// We are removing leader
 		if (this.leaderPosition().equals(target)) {
 			newLeaderPosition = TilePos.OFF_BOARD;
 		} else {
 			newLeaderPosition = this.leaderPosition();
-			removingGuard = true;
 		}
 
 		// Remove troop from map
 		updatedTroopMap.remove(target);
 
-		if (removingGuard) {
-			return new BoardTroops(this.playingSide(), updatedTroopMap, newLeaderPosition, this.guards() - 1);
-		} else {
-			return new BoardTroops(this.playingSide(), updatedTroopMap, newLeaderPosition, this.guards());
-		}
+		return new BoardTroops(this.playingSide(), updatedTroopMap, newLeaderPosition, this.guards());
 	}	
 }
