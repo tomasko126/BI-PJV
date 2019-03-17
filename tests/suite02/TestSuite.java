@@ -6,8 +6,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-	TroopTileTest.class,
-	BoardTest.class
+	Offset2DTest.class,
+	TroopTest.class,
 })
 
 public class TestSuite {

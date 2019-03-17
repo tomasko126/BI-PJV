@@ -1,4 +1,4 @@
-package main;
+package suite03;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -6,11 +6,9 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-	suite01.TestSuite.class,
-	suite02.TestSuite.class,
-	suite03.TestSuite.class
+	BoardTroopsTest.class
 })
 
-public class MainSuite {
+public class TestSuite {
 
 }
