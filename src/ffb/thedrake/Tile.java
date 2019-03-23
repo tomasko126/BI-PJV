@@ -1,6 +1,9 @@
 package ffb.thedrake;
 
+import java.util.List;
+
 public interface Tile {
-    boolean canStepOn();
-    boolean hasTroop();
+    public boolean canStepOn();
+    public boolean hasTroop();
+    public List<Move> movesFrom(BoardPos pos, GameState state);
 }
