@@ -1,5 +1,9 @@
 package ffb.thedrake;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class TroopTile implements Tile {
     private Troop troop;
     private PlayingSide playingSide;
@@ -49,5 +53,14 @@ public class TroopTile implements Tile {
         return new TroopTile(this.troop, this.playingSide, TroopFace.AVERS);
     }
 
+    @Override
+    public List<Move> movesFrom(BoardPos pos, GameState state) {
+        List<Move> result = new ArrayList<>();
+        List<TroopAction> actionList = troop.actions(this.face());
+        for(TroopAction it : actionList){
+            result.addAll(it.movesFrom(pos,playingSide,state));
+        }
+        return result;
+    }
 
 }
