@@ -1,9 +1,10 @@
 package ffb.thedrake;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class BoardPos implements TilePos {
+public class BoardPos implements TilePos, Comparable<BoardPos> {
   private final int dimension;
   private final int i;
   private final int j;
@@ -13,17 +14,21 @@ public class BoardPos implements TilePos {
     this.i = i;
     this.j = j;
   }
-  
+
+  public int compareTo(BoardPos r) {
+    return this.toString().compareTo(r.toString());
+  }
+
   @Override
   public int i() {
     return i;
   }
-  
+
   @Override
   public int j() {
     return j;
   }
-  
+
   @Override
   public char column() {
     return (char) ('a' + i);
@@ -37,12 +42,12 @@ public class BoardPos implements TilePos {
   public TilePos step(int columnStep, int rowStep) {
     int newi = i + columnStep;
     int newj = j + rowStep;
-    
+
     if((newi >= 0 && newi < dimension) &&
        (newj >= 0 && newj < dimension)) {
       return new BoardPos(dimension, newi, newj);
     }
-          
+
     return TilePos.OFF_BOARD;
   }
 
@@ -52,48 +57,48 @@ public class BoardPos implements TilePos {
   }
 
   @Override
-  public List<BoardPos> neighbours() { 
+  public List<BoardPos> neighbours() {
     List<BoardPos> result = new ArrayList<>();
     TilePos pos = step(1, 0);
     if(pos != TilePos.OFF_BOARD)
       result.add((BoardPos)pos);
-    
+
     pos = step(-1, 0);
     if(pos != TilePos.OFF_BOARD)
       result.add((BoardPos)pos);
-    
+
     pos = step(0, 1);
     if(pos != TilePos.OFF_BOARD)
       result.add((BoardPos)pos);
-    
+
     pos = step(0, -1);
     if(pos != TilePos.OFF_BOARD)
       result.add((BoardPos)pos);
-    
+
     return result;
   }
-  
+
   @Override
   public boolean isNextTo(TilePos pos) {
     if(pos == TilePos.OFF_BOARD)
       return false;
-    
+
     if(this.i == pos.i() && Math.abs(this.j - pos.j()) == 1)
       return true;
-    
+
     if(this.j == pos.j() && Math.abs(this.i - pos.i()) == 1)
       return true;
-    
+
     return false;
   }
-  
+
   @Override
   public TilePos stepByPlayingSide(Offset2D dir, PlayingSide side) {
     return side == PlayingSide.BLUE ?
-        step(dir) : 
-        step(dir.yFlipped());  
+        step(dir) :
+        step(dir.yFlipped());
   }
-  
+
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -107,7 +112,7 @@ public class BoardPos implements TilePos {
   public boolean equalsTo(int i, int j) {
     return this.i == i && this.j == j;
   }
-  
+
   @Override
   public boolean equals(Object obj) {
     if (this == obj)
@@ -123,7 +128,7 @@ public class BoardPos implements TilePos {
       return false;
     return true;
   }
-  
+
   @Override
   public String toString() {
     return String.format("%c%d", column(), row());

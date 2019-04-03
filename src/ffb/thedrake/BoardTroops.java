@@ -43,6 +43,10 @@ public class BoardTroops {
 		return this.leaderPosition;
 	}
 
+	public Map<BoardPos, TroopTile> troopMap() {
+		return this.troopMap;
+	}
+
 	public int guards() {
 		return this.guards;
 	}
@@ -128,7 +132,13 @@ public class BoardTroops {
 			updatedBoardTroops = new BoardTroops(this.playingSide(), updatedTroopMap, this.leaderPosition(), this.guards());
 		}
 
-		updatedBoardTroops = updatedBoardTroops.placeTroop(updatedTroopMap.get(origin).troop(), target);
+		updatedBoardTroops = updatedBoardTroops.placeTroop(updatedBoardTroops.troopMap().get(origin).troop(), target);
+
+		// If origin's and target's faces are equal, flip the target's face
+		if (updatedBoardTroops.troopMap().get(origin).face() == updatedBoardTroops.troopMap().get(target).face()) {
+			updatedBoardTroops = updatedBoardTroops.troopFlip(target);
+		}
+
 		updatedBoardTroops = updatedBoardTroops.removeTroop(origin);
 
 		return updatedBoardTroops;

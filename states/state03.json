@@ -1,0 +1,70 @@
+{
+	"result": "IN_PLAY",
+	"board": {
+		"dimension": 4,
+		"tiles": [
+			"empty",
+			"empty",
+			"empty",
+			"empty",
+			"empty",
+			"mountain",
+			"empty",
+			"empty",
+			"empty",
+			"empty",
+			"empty",
+			"mountain",
+			"empty",
+			"empty",
+			"empty",
+			"empty"
+		]
+	},
+	"blueArmy": {
+		"boardTroops": {
+			"side": "BLUE",
+			"leaderPosition": "a1",
+			"guards": 0,
+			"troopMap": {
+				"a1": {
+					"troop": "Drake",
+					"side": "BLUE",
+					"face": "AVERS"
+				}
+			}
+		},
+		"stack": [
+			"Clubman",
+			"Clubman",
+			"Monk",
+			"Spearman",
+			"Swordsman",
+			"Archer"
+		],
+		"captured": []
+	},
+	"orangeArmy": {
+		"boardTroops": {
+			"side": "ORANGE",
+			"leaderPosition": "a4",
+			"guards": 0,
+			"troopMap": {
+				"a4": {
+					"troop": "Drake",
+					"side": "ORANGE",
+					"face": "AVERS"
+				}
+			}
+		},
+		"stack": [
+			"Clubman",
+			"Clubman",
+			"Monk",
+			"Spearman",
+			"Swordsman",
+			"Archer"
+		],
+		"captured": []
+	}
+}
