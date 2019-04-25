@@ -1,0 +1,91 @@
+{
+	"result": "IN_PLAY",
+	"board": {
+		"dimension": 4,
+		"tiles": [
+			"empty",
+			"empty",
+			"empty",
+			"empty",
+			"empty",
+			"mountain",
+			"empty",
+			"empty",
+			"empty",
+			"empty",
+			"empty",
+			"mountain",
+			"empty",
+			"empty",
+			"empty",
+			"empty"
+		]
+	},
+	"blueArmy": {
+		"boardTroops": {
+			"side": "BLUE",
+			"leaderPosition": "a1",
+			"guards": 2,
+			"troopMap": {
+				"b1": {
+					"troop": "Clubman",
+					"side": "BLUE",
+					"face": "AVERS"
+				},
+				"a1": {
+					"troop": "Drake",
+					"side": "BLUE",
+					"face": "AVERS"
+				},
+				"a3": {
+					"troop": "Clubman",
+					"side": "BLUE",
+					"face": "REVERS"
+				},
+				"c1": {
+					"troop": "Monk",
+					"side": "BLUE",
+					"face": "AVERS"
+				}
+			}
+		},
+		"stack": [
+			"Spearman",
+			"Swordsman",
+			"Archer"
+		],
+		"captured": [
+			"Clubman"
+		]
+	},
+	"orangeArmy": {
+		"boardTroops": {
+			"side": "ORANGE",
+			"leaderPosition": "a4",
+			"guards": 2,
+			"troopMap": {
+				"b3": {
+					"troop": "Monk",
+					"side": "ORANGE",
+					"face": "AVERS"
+				},
+				"b4": {
+					"troop": "Clubman",
+					"side": "ORANGE",
+					"face": "AVERS"
+				},
+				"a4": {
+					"troop": "Drake",
+					"side": "ORANGE",
+					"face": "AVERS"
+				}
+			}
+		},
+		"stack": [
+			"Spearman",
+			"Swordsman",
+			"Archer"
+		],
+		"captured": []
+	}
+}
