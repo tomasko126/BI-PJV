@@ -1,0 +1,47 @@
+.button {
+    -fx-background-color:
+            #000000,
+            linear-gradient(#e7e7e7, #b4b4b4),
+            linear-gradient(#4b4b4b, #000000),
+            #2f4b8f;
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: #fff500;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.button:hover{
+    -fx-background-color:
+            #000000,
+            linear-gradient(#e7e7e7, #b4b4b4),
+            linear-gradient(#e7e7e7, #000000),
+            #478aeb;
+}
+
+.button:pressed{
+    -fx-background-color:
+            #000000,
+            linear-gradient(#e7e7e7, #b4b4b4),
+            linear-gradient(#000000, #ffffff),
+            #4785e6;
+}
+
+.vbox{
+    -fx-background-color: rgba(0, 0, 0, 25);
+}
+
+.mainLabel{
+    -fx-font-size: 70px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Papyrus";
+}
+
+
+#AnchorPane{
+    -fx-background-image: url("img/background_proto_drake.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+}
+
