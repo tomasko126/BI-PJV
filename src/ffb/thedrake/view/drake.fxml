@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import java.net.*?>
+
+<?import javafx.geometry.*?>
+
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.layout.*?>
+
+
+
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffb.thedrake.view.Controller">
+
+    <stylesheets>
+
+        <URL value="@style.css" />
+
+    </stylesheets>
+
+    <children>
+
+
+        <VBox alignment="BOTTOM_CENTER" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="125.0">
+
+            <children>
+
+                <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefWidth="250.0" text="Multiplayer">
+
+                    <VBox.margin>
+
+                        <Insets bottom="10.0" />
+
+                    </VBox.margin>
+
+                </Button>
+
+                <Button alignment="CENTER" mnemonicParsing="false" prefWidth="250.0" text="Singleplayer">
+
+                    <VBox.margin>
+
+                        <Insets bottom="10.0" />
+
+                    </VBox.margin>
+
+                </Button>
+
+                <Button alignment="CENTER" mnemonicParsing="false" prefWidth="250.0" text="Online">
+
+                    <VBox.margin>
+
+                        <Insets bottom="10.0" />
+
+                    </VBox.margin>
+
+                </Button>
+
+                <Button fx:id="closeButton" alignment="CENTER" cancelButton="true" mnemonicParsing="false" onAction="#CloseButton" prefWidth="250.0" text="Exit">
+
+                    <VBox.margin>
+
+                        <Insets bottom="200.0" />
+
+                    </VBox.margin>
+
+                </Button>
+
+            </children>
+
+            <padding>
+
+                <Insets bottom="10.0" />
+
+            </padding>
+
+        </VBox>
+
+        <Label alignment="CENTER" layoutX="1343.0" layoutY="254.0" prefHeight="52.0" prefWidth="400.0" styleClass="mainLabel" text="The Drake" textFill="#000000" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="50.0">
+
+            <padding>
+
+                <Insets bottom="10.0" />
+
+            </padding>
+
+        </Label>
+
+    </children>
+
+
+
+</AnchorPane>
