@@ -32,7 +32,7 @@ public class TileView extends Pane {
         setOnMouseClicked(e -> onClick());
         update();
 
-        moveImage = new ImageView(getClass().getResource("/assets/move.png").toString());
+        moveImage = new ImageView(getClass().getResource("assets/move.png").toString());
         moveImage.setVisible(false);
         getChildren().add(moveImage);
 

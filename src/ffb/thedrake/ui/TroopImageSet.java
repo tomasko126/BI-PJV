@@ -20,7 +20,7 @@ public class TroopImageSet {
     }
 
     private InputStream assetFromJAR(String fileName) {
-        return getClass().getResourceAsStream("/assets/" + fileName + ".png");
+        return getClass().getResourceAsStream("assets/" + fileName + ".png");
     }
 
     public Image get(PlayingSide side, TroopFace face) {

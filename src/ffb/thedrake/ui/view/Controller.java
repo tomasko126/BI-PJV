@@ -1,5 +1,6 @@
-package ffb.thedrake.view;
+package ffb.thedrake.ui.view;
 
+import ffb.thedrake.GameResult;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
@@ -15,9 +16,13 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    public void PlayButton(ActionEvent actionEvent) {
+        GameResult.changeStateTo(GameResult.IN_PLAY);
+    }
+
     public void CloseButton(ActionEvent actionEvent)
     {
         ((Stage) closeButton.getScene().getWindow()).close();
     }
-
 }

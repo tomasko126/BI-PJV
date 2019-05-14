@@ -14,7 +14,7 @@ public class TileBackgrounds {
     private final Background mountainBg;
 
     public TileBackgrounds() {
-        Image img = new Image(getClass().getResourceAsStream("/assets/mountain.png"));
+        Image img = new Image(getClass().getResourceAsStream("assets/mountain.png"));
         this.mountainBg = new Background(
                 new BackgroundImage(img, null, null, null, null));
     }

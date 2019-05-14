@@ -13,7 +13,7 @@
 
 
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffb.thedrake.view.Controller">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffb.thedrake.ui.view.Controller">
 
     <stylesheets>
 
@@ -28,7 +28,7 @@
 
             <children>
 
-                <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefWidth="250.0" text="Multiplayer">
+                <Button fx:id="playButton" onAction="#PlayButton" alignment="CENTER" mnemonicParsing="false" prefWidth="250.0" text="2 Players">
 
                     <VBox.margin>
 
@@ -38,7 +38,7 @@
 
                 </Button>
 
-                <Button alignment="CENTER" mnemonicParsing="false" prefWidth="250.0" text="Singleplayer">
+                <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefWidth="250.0" text="Player vs PC">
 
                     <VBox.margin>
 
@@ -48,7 +48,7 @@
 
                 </Button>
 
-                <Button alignment="CENTER" mnemonicParsing="false" prefWidth="250.0" text="Online">
+                <Button alignment="CENTER" mnemonicParsing="false" prefWidth="250.0" text="Online game">
 
                     <VBox.margin>
 
