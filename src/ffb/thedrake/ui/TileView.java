@@ -1,11 +1,11 @@
 package ffb.thedrake.ui;
 
+import ffb.thedrake.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import ffb.thedrake.BoardPos;
-import ffb.thedrake.Move;
-import ffb.thedrake.Tile;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class TileView extends Pane {
 
@@ -30,11 +30,25 @@ public class TileView extends Pane {
         setPrefSize(100, 100);
 
         setOnMouseClicked(e -> onClick());
-        update();
+        //update();
 
         moveImage = new ImageView(getClass().getResource("assets/move.png").toString());
         moveImage.setVisible(false);
         getChildren().add(moveImage);
+
+
+        /*
+        int randomNum = ThreadLocalRandom.current().nextInt(0, 2 + 1);
+
+        if (randomNum == 0) {
+            setTile(new TroopTile(tileViewContext.getGameState().armyOnTurn().stack().get(0), PlayingSide.BLUE, TroopFace.AVERS));
+        } else if (randomNum == 1){
+            setTile(new TroopTile(tileViewContext.getGameState().armyOnTurn().stack().get(0), PlayingSide.ORANGE, TroopFace.AVERS));
+        }
+        */
+
+
+        update();
 
         this.tileViewContext = tileViewContext;
     }
@@ -56,7 +70,7 @@ public class TileView extends Pane {
         if (move != null) {
             tileViewContext.executeMove(move);
         } else if (tile.hasTroop()) {
-            select();
+            this.select();
         }
     }
 

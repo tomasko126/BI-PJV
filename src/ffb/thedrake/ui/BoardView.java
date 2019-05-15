@@ -1,13 +1,10 @@
 package ffb.thedrake.ui;
 
+import ffb.thedrake.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
-import ffb.thedrake.BoardPos;
-import ffb.thedrake.GameState;
-import ffb.thedrake.Move;
-import ffb.thedrake.PositionFactory;
 
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class BoardView extends GridPane implements TileViewContext {
 
     public BoardView(GameState gameState) {
         this.gameState = gameState;
-        this.validMoves = new ValidMoves(gameState);
+
 
         PositionFactory positionFactory = gameState.board().positionFactory();
 
@@ -33,6 +30,8 @@ public class BoardView extends GridPane implements TileViewContext {
                 add(new TileView(boardPos, gameState.tileAt(boardPos), this), x, y);
             }
         }
+
+        this.validMoves = new ValidMoves(gameState);
 
         setHgap(5);
         setVgap(5);
@@ -78,6 +77,8 @@ public class BoardView extends GridPane implements TileViewContext {
         gameState = move.execute(gameState);
         validMoves = new ValidMoves(gameState);
         updateTiles();
+
+        GameResult.changeStateTo(gameState.result());
     }
 
     private void updateTiles() {
@@ -88,5 +89,7 @@ public class BoardView extends GridPane implements TileViewContext {
         }
     }
 
-
+    public GameState getGameState() {
+        return gameState;
+    }
 }

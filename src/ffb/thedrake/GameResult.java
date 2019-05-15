@@ -7,6 +7,9 @@ public enum GameResult {
 	public static GameResult state = GameResult.MAIN_MENU;
 
 	public static void changeStateTo(GameResult newState) {
+		if (state == newState) {
+			return;
+		}
 		state = newState;
 		changeStateChangedTo(true);
 	}
