@@ -1,8 +1,11 @@
 package ffb.thedrake.ui;
 
 import ffb.thedrake.*;
+import ffb.thedrake.ui.view.EndGameController;
+import ffb.thedrake.ui.view.MainMenuController;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -16,11 +19,21 @@ public class TheDrakeApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        AnchorPane mainMenu = FXMLLoader.load(getClass().getResource("view/drake.fxml"));
+        AnchorPane mainMenu = FXMLLoader.load(getClass().getResource("view/MainMenu.fxml"));
+        Scene mainMenuScene = new Scene(mainMenu);
 
-        Scene sceneMainMenu = new Scene(mainMenu);
+        GameState gameState = createSampleGameState();
+        GameView gameView = new GameView(gameState);
+        Scene gameScene = new Scene(gameView);
 
-        stage.setScene(sceneMainMenu);
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane endView = loader.load(getClass().getResource("view/EndGame.fxml").openStream());
+        EndGameController controller = loader.getController();
+
+        Scene endScene = new Scene(endView);
+        endScene.getStylesheets().add("ffb/thedrake/ui/view/style.css");
+
+        stage.setScene(mainMenuScene);
         stage.setTitle("The Drake");
         stage.show();
 
@@ -31,20 +44,27 @@ public class TheDrakeApp extends Application {
                     GameResult.changeStateChangedTo(false);
 
                     if (GameResult.getState() == GameResult.IN_PLAY) {
-                        GameState gameState = createSampleGameState();
-                        GameView gameView = new GameView(gameState);
-
-                        Scene gameScene = new Scene(gameView);
-
                         stage.setScene(gameScene);
-                        stage.setResizable(false);
+                        stage.show();
+                    } else if (GameResult.getState() == GameResult.VICTORY || GameResult.getState() == GameResult.DRAW) {
+                        if (GameResult.getState() == GameResult.DRAW) {
+                            controller.setWonText("Draw!");
+                        } else {
+                            PlayingSide sideNotOnTurn = gameView.getBoardView().getGameState().armyNotOnTurn().side();
+                            controller.setWonText(sideNotOnTurn + " has won!");
+                        }
 
+                        stage.setScene(endScene);
                         stage.show();
-                    } else if (GameResult.getState() == GameResult.VICTORY) {
-                        stage.setScene(sceneMainMenu);
-                        stage.show();
+                    } else if (GameResult.getState() == GameResult.MAIN_MENU) {
+                        stage.setScene(mainMenuScene);
                     }
                 }
+
+                PlayingSide sideOnTurn = gameView.getBoardView().getGameState().sideOnTurn();
+
+                gameView.getPlayerOnTurn().setText("Side on turn: " + sideOnTurn);
+                gameView.getNoOfCapturedTroops().setText("Number of captured troops: " + gameView.getBoardView().getGameState().armyOnTurn().captured().size());
             }
         }.start();
     }

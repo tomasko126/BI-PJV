@@ -44,3 +44,13 @@
     -fx-background-size: cover;
 }
 
+#wonLabel {
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fff500;
+}
+
+#backToMenuButton {
+    -fx-margin-top: 150px;
+}
+

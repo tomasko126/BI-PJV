@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="833" prefWidth="1365" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffb.thedrake.ui.view.EndGameController">
+
+    <children>
+
+        <VBox alignment="CENTER" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+            <children>
+
+                <Label fx:id="wonLabel" alignment="TOP_CENTER" layoutX="1343.0" layoutY="50.0" prefHeight="52.0" prefWidth="400.0" textFill="#000000" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="0.0"> </Label>
+
+
+                <Button fx:id="backToMenuButton" alignment="CENTER" cancelButton="true" mnemonicParsing="false" onAction="#BackToMenuButton" prefWidth="300.0" text="Back to Main Menu">
+
+                    <VBox.margin>
+
+                        <Insets top="200.0" />
+
+                    </VBox.margin>
+
+                </Button>
+
+            </children>
+
+        </VBox>
+
+    </children>
+
+</AnchorPane>

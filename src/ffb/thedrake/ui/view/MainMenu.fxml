@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="833" prefWidth="1365" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffb.thedrake.ui.view.Controller">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="833" prefWidth="1365" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ffb.thedrake.ui.view.MainMenuController">
 
     <stylesheets>
 
@@ -19,6 +19,16 @@
         <VBox alignment="BOTTOM_CENTER" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="125.0">
 
             <children>
+
+                <Label alignment="TOP_CENTER" layoutX="1343.0" layoutY="50.0" prefHeight="52.0" prefWidth="400.0" styleClass="mainLabel" text="The Drake" textFill="#000000" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="0.0">
+
+                    <padding>
+
+                        <Insets bottom="10.0" />
+
+                    </padding>
+
+                </Label>
 
                 <Button fx:id="playButton" onAction="#PlayButton" alignment="CENTER" mnemonicParsing="false" prefWidth="250.0" text="2 Players">
 
@@ -70,18 +80,6 @@
 
         </VBox>
 
-        <Label alignment="CENTER" layoutX="1343.0" layoutY="254.0" prefHeight="52.0" prefWidth="400.0" styleClass="mainLabel" text="The Drake" textFill="#000000" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="50.0">
-
-            <padding>
-
-                <Insets bottom="10.0" />
-
-            </padding>
-
-        </Label>
-
     </children>
-
-
 
 </AnchorPane>

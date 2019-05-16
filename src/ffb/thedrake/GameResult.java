@@ -4,7 +4,7 @@ public enum GameResult {
 	VICTORY, DRAW, IN_PLAY, MAIN_MENU;
 
 	public static boolean stateChanged = false;
-	public static GameResult state = GameResult.MAIN_MENU;
+	public static GameResult state = null;
 
 	public static void changeStateTo(GameResult newState) {
 		if (state == newState) {
