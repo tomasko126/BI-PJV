@@ -14,7 +14,9 @@ public class BoardView extends GridPane implements TileViewContext {
 
     private ValidMoves validMoves;
 
-    private TileView selected;
+    private TileView selectedTileView;
+
+    private StackView selectedStackView;
 
     public BoardView(GameState gameState) {
         this.gameState = gameState;
@@ -37,6 +39,8 @@ public class BoardView extends GridPane implements TileViewContext {
         setVgap(5);
         setPadding(new Insets(15));
         setAlignment(Pos.CENTER);
+
+        this.selectedStackView = new StackView(this);
     }
 
     private void clearMoves() {
@@ -55,24 +59,41 @@ public class BoardView extends GridPane implements TileViewContext {
     private TileView tileViewAt(BoardPos target) {
         int index = (3 - target.j()) * 4 + target.i();
         return (TileView) getChildren().get(index);
-
     }
 
     @Override
     public void tileViewSelected(TileView tileView) {
-        if (selected != null && selected != tileView) {
-            selected.unselect();
+        if (selectedTileView != null && selectedTileView != tileView) {
+            selectedTileView.unselect();
+            selectedTileView = null;
+            selectedStackView.unselect();
         }
 
-        selected = tileView;
+        selectedTileView = tileView;
         clearMoves();
         showMoves(validMoves.boardMoves(tileView.position()));
     }
 
     @Override
+    public void stackViewSelected(StackView stackView) {
+        if (selectedTileView != null) {
+            selectedTileView.unselect();
+        }
+
+        selectedStackView = stackView;
+        clearMoves();
+
+        List<Move> validStackMoves = validMoves.movesFromStack();
+        showMoves(validStackMoves);
+    }
+
+    @Override
     public void executeMove(Move move) {
-        selected.unselect();
-        selected = null;
+        if (selectedTileView != null) {
+            selectedTileView.unselect();
+            selectedTileView = null;
+        }
+
         clearMoves();
         gameState = move.execute(gameState);
         validMoves = new ValidMoves(gameState);
@@ -86,10 +107,15 @@ public class BoardView extends GridPane implements TileViewContext {
             TileView tileView = (TileView) node;
             tileView.setTile(gameState.tileAt(tileView.position()));
             tileView.update();
+            selectedStackView.update();
         }
     }
 
     public GameState getGameState() {
         return gameState;
+    }
+
+    public StackView getStackView() {
+        return selectedStackView;
     }
 }

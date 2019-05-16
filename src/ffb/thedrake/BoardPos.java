@@ -1,7 +1,6 @@
 package ffb.thedrake;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class BoardPos implements TilePos, Comparable<BoardPos> {

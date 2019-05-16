@@ -7,6 +7,8 @@ public interface TileViewContext {
 
     void tileViewSelected(TileView tileView);
 
+    void stackViewSelected(StackView stackView);
+
     void executeMove(Move move);
 
     GameState getGameState();

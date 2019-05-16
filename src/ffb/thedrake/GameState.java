@@ -1,7 +1,9 @@
 package ffb.thedrake;
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Map;
+import java.util.Optional;
+import java.util.TreeMap;
 
 public class GameState implements JSONSerializable {
     private final Board board;

@@ -1,8 +1,8 @@
 package ffb.thedrake.ui;
 
-import javafx.scene.image.Image;
 import ffb.thedrake.PlayingSide;
 import ffb.thedrake.TroopFace;
+import javafx.scene.image.Image;
 
 import java.io.InputStream;
 

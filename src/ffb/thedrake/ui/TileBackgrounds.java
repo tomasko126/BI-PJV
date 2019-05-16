@@ -1,11 +1,11 @@
 package ffb.thedrake.ui;
 
+import ffb.thedrake.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.paint.Color;
-import ffb.thedrake.*;
 
 public class TileBackgrounds {
 
@@ -20,6 +20,10 @@ public class TileBackgrounds {
     }
 
     public Background get(Tile tile) {
+        if (tile == null) {
+            return EMPTY_BG;
+        }
+
         if (tile.hasTroop()) {
             TroopTile armyTile = ((TroopTile) tile);
             return getTroop(armyTile.troop(), armyTile.side(), armyTile.face());

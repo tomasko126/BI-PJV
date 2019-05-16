@@ -1,12 +1,12 @@
 package ffb.thedrake.ui;
 
+import ffb.thedrake.*;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import ffb.thedrake.*;
 
 public class TheDrakeApp extends Application {
 
@@ -32,18 +32,9 @@ public class TheDrakeApp extends Application {
 
                     if (GameResult.getState() == GameResult.IN_PLAY) {
                         GameState gameState = createSampleGameState();
-                        PositionFactory pf = gameState.board().positionFactory();
-                        gameState = gameState.placeFromStack(pf.pos("a1"));
-                        gameState = gameState.placeFromStack(pf.pos("d4"));
-                        gameState = gameState.placeFromStack(pf.pos("a2"));
-                        gameState = gameState.placeFromStack(pf.pos("d3"));
-                        gameState = gameState.placeFromStack(pf.pos("a3"));
-                        gameState = gameState.placeFromStack(pf.pos("d2"));
-                        gameState = gameState.placeFromStack(pf.pos("a4"));
-                        gameState = gameState.placeFromStack(pf.pos("d1"));
+                        GameView gameView = new GameView(gameState);
 
-                        BoardView boardView = new BoardView(gameState);
-                        Scene gameScene = new Scene(boardView);
+                        Scene gameScene = new Scene(gameView);
 
 
                         stage.setScene(gameScene);
