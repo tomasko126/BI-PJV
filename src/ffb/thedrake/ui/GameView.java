@@ -9,7 +9,6 @@ public class GameView extends BorderPane {
 
     public GameView(GameState gameState) {
         boardView = new BoardView(gameState);
-
         this.setLeft(boardView);
 
         VBox stackBox = new VBox();

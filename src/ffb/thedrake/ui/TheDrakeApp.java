@@ -36,8 +36,9 @@ public class TheDrakeApp extends Application {
 
                         Scene gameScene = new Scene(gameView);
 
-
                         stage.setScene(gameScene);
+                        stage.setResizable(false);
+
                         stage.show();
                     } else if (GameResult.getState() == GameResult.VICTORY) {
                         stage.setScene(sceneMainMenu);
