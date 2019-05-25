@@ -1,7 +1,9 @@
 package ffb.thedrake;
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Map;
+import java.util.Optional;
+import java.util.TreeMap;
 
 public class GameState implements JSONSerializable {
     private final Board board;
@@ -135,7 +137,7 @@ public class GameState implements JSONSerializable {
         // B
         else if (armyOnTurn().boardTroops().isPlacingGuards() && armyOnTurn().boardTroops().at(board.positionFactory().pos(target.i(), target.j())).equals(Optional.empty())) {
             for (BoardPos it : board.positionFactory().pos(target.i(), target.j()).neighbours()) {
-                if (armyOnTurn().boardTroops().leaderPosition().equalsTo(it.i(), it.j()))
+                if (!armyOnTurn().boardTroops().leaderPosition().equalsTo(it.i(), it.j()))
                     return true;
             }
         }

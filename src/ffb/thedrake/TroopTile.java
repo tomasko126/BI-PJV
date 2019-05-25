@@ -1,7 +1,6 @@
 package ffb.thedrake;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class TroopTile implements Tile {
